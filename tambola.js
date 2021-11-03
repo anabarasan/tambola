@@ -237,6 +237,9 @@ function update_display(ticket) {
 
 function leftClick() {
   var target = event.target || event.srcElement;
+  if (target.innerHTML.trim() == "") {
+    return;
+  }
   target.style.background = 'lime';
   clicked = localStorage.getItem('tclicked');
   clicked = JSON.parse(clicked);
@@ -248,6 +251,9 @@ function leftClick() {
 
 function rightClick() {
   var target = event.target || event.srcElement;
+  if (target.innerHTML.trim() == "") {
+    return;
+  }
   target.style.background = '';
   event.preventDefault();
   event.stopPropagation();
