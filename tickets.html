@@ -1,10 +1,19 @@
 <!doctype html>
 <html>
-    <head>
-        <script>
-            localStorage.removeItem('ticket');
-            localStorage.removeItem('tclicked');
-            window.location.replace(window.location.href.replace('tickets.html', 'index.html'))
-        </script>
-    </head>
+  <head>
+    <script>
+      const ticket = localStorage.getItem('ticket');
+      if (ticket) {
+        const user_choice = prompt("Do you want to generate a new ticket? type 'yes' to generate new ticket");
+        if (user_choice === "yes") {
+          localStorage.removeItem('ticket');
+          localStorage.removeItem('tclicked');
+          alert("New ticket will be generated");
+        } else {
+          alert("Existing ticket will be preserved");
+        }
+      }
+      window.location.replace(window.location.href.replace('tickets.html', 'index.html'))
+    </script>
+  </head>
 </html>
